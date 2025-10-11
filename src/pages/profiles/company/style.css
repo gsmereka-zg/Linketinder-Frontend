@@ -1,0 +1,13 @@
+@import url("../../../base.css");
+
+#candidato-info, #empresa-info {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+#candidato-info p, #empresa-info p {
+  margin-bottom: 0.5rem;
+}

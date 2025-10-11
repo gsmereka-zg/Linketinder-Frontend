@@ -1,0 +1,16 @@
+@import url("../../../base.css");
+
+form {
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+button {
+  margin-top: 1rem;
+}
+
+::placeholder {
+  color: #e9e9e9af;
+}

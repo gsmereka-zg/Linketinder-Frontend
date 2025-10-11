@@ -1,0 +1,8 @@
+{
+    "type": "module",
+    "scripts": {
+        "build": "tsc && npm run copy && npx serve dest",
+        "copy": "xcopy src\\*.html dest /s /y && xcopy src\\*.css dest /s /y"
+    }
+
+}
