@@ -1,0 +1,53 @@
+# Salve como deploy-prod.ps1
+
+# Configurações
+$prodBranch = "prod"
+$srcDir = "src"
+$destDir = "dest"
+
+# Obtém a branch atual
+$currentBranch = git rev-parse --abbrev-ref HEAD
+Write-Host "Branch atual: $currentBranch"
+
+# Verifica se a branch 'prod' existe localmente
+$prodExistsLocal = git branch --list $prodBranch
+
+# Se existir, deleta a branch local
+if ($prodExistsLocal) {
+    Write-Host "Removendo branch local '$prodBranch'..."
+    git branch -D $prodBranch
+}
+
+# Verifica se a branch 'prod' existe remotamente
+$prodExistsRemote = git ls-remote --heads origin $prodBranch
+
+# Se existir remotamente, deleta a branch remota
+if ($prodExistsRemote) {
+    Write-Host "Removendo branch remota '$prodBranch'..."
+    git push origin --delete $prodBranch
+}
+
+# Cria nova branch 'prod' a partir da atual
+Write-Host "Criando nova branch '$prodBranch'..."
+git checkout -b $prodBranch
+
+# Copia arquivos da pasta 'dest/' para raiz
+Write-Host "Copiando arquivos de '$destDir/' para raiz..."
+Copy-Item "$destDir\*" -Destination "." -Recurse -Force
+
+# Remove a pasta 'src/'
+if (Test-Path $srcDir) {
+    Write-Host "Removendo a pasta '$srcDir/'..."
+    Remove-Item $srcDir -Recurse -Force
+}
+
+# Commit e push
+git add .
+git commit -m "Deploy para produção"
+git push -u origin $prodBranch
+
+# Volta para a branch original
+Write-Host "Voltando para a branch '$currentBranch'..."
+git checkout $currentBranch
+
+Write-Host "✔️ Deploy finalizado com sucesso."
