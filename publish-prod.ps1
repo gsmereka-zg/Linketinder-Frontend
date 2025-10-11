@@ -12,23 +12,6 @@ Write-Host "Branch atual: $currentBranch"
 git add .
 git commit -m "Deploy para produção"
 git push
-# Verifica se a branch 'prod' existe localmente
-# $prodExistsLocal = git branch --list $prodBranch
-
-# # Se existir, deleta a branch local
-# if ($prodExistsLocal) {
-#     Write-Host "Removendo branch local '$prodBranch'..."
-#     git branch -D $prodBranch
-# }
-
-# Verifica se a branch 'prod' existe remotamente
-# $prodExistsRemote = git ls-remote --heads origin $prodBranch
-
-# # Se existir remotamente, deleta a branch remota
-# if ($prodExistsRemote) {
-#     Write-Host "Removendo branch remota '$prodBranch'..."
-#     git push origin --delete $prodBranch
-# }
 
 # Cria nova branch 'prod' a partir da atual
 Write-Host "Criando nova branch '$prodBranch'..."
