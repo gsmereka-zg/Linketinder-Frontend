@@ -49,5 +49,3 @@ git push --set-upstream origin $prodBranch
 # Volta para a branch original
 Write-Host "Voltando para a branch '$currentBranch'..."
 git checkout $currentBranch
-
-Write-Host "✔️ Deploy finalizado com sucesso."
