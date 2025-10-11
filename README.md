@@ -5,7 +5,7 @@ Aqui está uma versão melhorada e mais informativa do seu **README.md**, com um
 # 🚀 Linketinder Frontend
 
 Frontend do **Linketinder**, uma aplicação inspirada no LinkedIn e Tinder, que conecta **candidatos** e **empresas** através de **habilidades em comum**.
-
+Experimente [aqui](https://gsmereka-zg.github.io/Linketinder-Frontend/). 
 ---
 
 ## ▶️ Como Executar o Projeto
