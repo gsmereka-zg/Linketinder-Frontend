@@ -32,7 +32,7 @@ git push
 
 # Cria nova branch 'prod' a partir da atual
 Write-Host "Criando nova branch '$prodBranch'..."
-git checkout -b $prodBranch
+git checkout $prodBranch
 
 # Copia arquivos da pasta 'dest/' para raiz
 Write-Host "Copiando arquivos de '$destDir/' para raiz..."
