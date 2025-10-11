@@ -44,7 +44,7 @@ if (Test-Path $srcDir) {
 # Commit e push
 git add .
 git commit -m "Deploy para produção"
-git push -u origin $prodBranch
+git push --set-upstream origin $prodBranch
 
 # Volta para a branch original
 Write-Host "Voltando para a branch '$currentBranch'..."
