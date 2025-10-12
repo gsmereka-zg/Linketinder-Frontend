@@ -6,7 +6,7 @@ export class Repository {
   private companies: Company[] = [];
 
   constructor() {
-    console.log("🗃️ [Repository] Inicializando...");
+    console.log("[Repository] Inicializando...");
 
     const storedCandidates = localStorage.getItem("candidates");
     const storedCompanies = localStorage.getItem("companies");
@@ -31,7 +31,7 @@ export class Repository {
   }
 
   private _createInitialData() {
-    console.log("📦 [Repository] Criando dados iniciais...");
+    console.log("[Repository] Criando dados iniciais...");
 
     this.candidates = [
       new Candidate("Ana Silva", "ana@gmail.com", "12345678900", 28, "SP", "01000-000", "Desenvolvedora Full Stack", ["JavaScript", "React", "Node.js"]),
@@ -79,11 +79,13 @@ export class Repository {
 
   getCompaniesLikedById(id: number) {
     console.log("[Repository] Listando empresas curtidas por: " + id, this.companies);
+    // Ainda nao implementado
     return this.companies;
   }
 
   getCandidatesLikedById(id: number) {
     console.log("[Repository] Listando candidatos curtidos por " + id, this.candidates);
+    // Ainda não implementado
     return this.candidates;
   }
 }

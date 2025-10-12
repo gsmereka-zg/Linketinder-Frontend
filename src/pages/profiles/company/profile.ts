@@ -33,4 +33,23 @@ function renderCompanyProfile() {
   `;
 }
 
+function renderCandidates() {
+  const tbody = document.querySelector("#candidates-table tbody");
+  if (!tbody) {
+    console.warn("Elemento #candidates-table não encontrado");
+    return;
+  }
+
+  tbody.innerHTML = "";
+  repo.getCandidates().forEach((c, i) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${c.name}</td>
+      <td>${c.description || "Sem descrição"}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", renderCompanyProfile);
+document.addEventListener("DOMContentLoaded", renderCandidates);
