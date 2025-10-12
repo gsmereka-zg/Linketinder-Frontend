@@ -17,6 +17,7 @@ git push
 Write-Host "Criando nova branch '$prodBranch'..."
 git checkout $prodBranch
 
+git merge main
 # Copia arquivos da pasta 'dest/' para raiz
 Write-Host "Copiando arquivos de '$destDir/' para raiz..."
 Copy-Item "$destDir\*" -Destination "." -Recurse -Force
