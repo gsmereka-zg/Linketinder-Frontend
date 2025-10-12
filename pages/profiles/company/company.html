@@ -8,7 +8,24 @@
 <body>
   <h1>Perfil da Empresa</h1>
   <div id="empresa-info"></div>
+
+  <section>
+    <h2>Candidatos com Match</h2>
+    <table id="candidates-table">
+      <thead>
+        <tr><th>Nome</th><th>Descrição</th><th>Habilidades</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section id="skillsChart__container">
+    <h2>Competências dos Candidatos com Match</h2>
+    <canvas id="skillsChart" width="400" height="200"></canvas>
+  </section>
+
   <a href="../../../index.html">Voltar</a>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.min.js"></script>
   <script type="module" src="profile.js"></script>
 </body>
 </html>

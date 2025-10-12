@@ -4,7 +4,7 @@ export class Repository {
     constructor() {
         this.candidates = [];
         this.companies = [];
-        console.log("🗃️ [Repository] Inicializando...");
+        console.log("[Repository] Inicializando...");
         const storedCandidates = localStorage.getItem("candidates");
         const storedCompanies = localStorage.getItem("companies");
         if (storedCandidates) {
@@ -21,6 +21,23 @@ export class Repository {
         else {
             console.log("[Repository] Nenhuma empresa encontrada no storage.");
         }
+        if (this.candidates.length === 0 && this.companies.length === 0) {
+            this._createInitialData();
+        }
+    }
+    _createInitialData() {
+        console.log("[Repository] Criando dados iniciais...");
+        this.candidates = [
+            new Candidate("Ana Silva", "ana@gmail.com", "12345678900", 28, "SP", "01000-000", "Desenvolvedora Full Stack", ["JavaScript", "React", "Node.js", "Python", "Figma"]),
+            new Candidate("Bruno Souza", "bruno@gmail.com", "23456789011", 32, "RJ", "20000-000", "Analista de Dados", ["Python", "SQL", "Power BI", "React"]),
+            new Candidate("Carla Mendes", "carla@gmail.com", "34567890122", 25, "MG", "30000-000", "UX/UI Designer", ["Figma", "Design Thinking", "Python", "React"])
+        ];
+        this.companies = [
+            new Company("TechCorp", "contato@techcorp.com", "11222333000181", "Brasil", "SP", "01000-000", "Empresa de soluções em tecnologia", ["JavaScript", "DevOps"]),
+            new Company("DataSoft", "rh@datasoft.com", "22333444000192", "Brasil", "RJ", "20000-000", "Consultoria em análise de dados", ["Python", "SQL"]),
+            new Company("DesignX", "oi@designx.com", "33444555000103", "Brasil", "MG", "30000-000", "Agência de design digital", ["UX", "UI", "Figma"])
+        ];
+        this.save();
     }
     save() {
         localStorage.setItem("candidates", JSON.stringify(this.candidates));
@@ -44,6 +61,16 @@ export class Repository {
     getCompanies() {
         console.log("[Repository] Listando empresas:", this.companies);
         return this.companies;
+    }
+    getMatchedCompaniesById(id) {
+        console.log("[Repository] Listando empresas curtidas por: " + id, this.companies);
+        // Ainda nao implementado
+        return this.companies;
+    }
+    getMatchedCandidatesById(id) {
+        console.log("[Repository] Listando candidatos curtidos por " + id, this.candidates);
+        // Ainda não implementado
+        return this.candidates;
     }
 }
 //# sourceMappingURL=Repository.js.map

@@ -11,3 +11,7 @@
 #candidato-info p, #empresa-info p {
   margin-bottom: 0.5rem;
 }
+
+#skillsChart__container {
+  margin-top: 50px;
+}

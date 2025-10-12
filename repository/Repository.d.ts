@@ -4,10 +4,13 @@ export declare class Repository {
     private candidates;
     private companies;
     constructor();
+    private _createInitialData;
     private save;
     addCandidate(c: Candidate): void;
     addCompany(c: Company): void;
     getCandidates(): Candidate[];
     getCompanies(): Company[];
+    getMatchedCompaniesById(id: number): Company[];
+    getMatchedCandidatesById(id: number): Candidate[];
 }
 //# sourceMappingURL=Repository.d.ts.map
