@@ -46,6 +46,7 @@ function renderCandidates() {
     row.innerHTML = `
       <td>${c.name}</td>
       <td>${c.description || "Sem descrição"}</td>
+      <td>${c.skills.length ? c.skills.join(", ") : "Nenhuma informada"}</td>
     `;
     tbody.appendChild(row);
   });

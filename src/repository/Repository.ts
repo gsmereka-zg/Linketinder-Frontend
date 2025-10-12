@@ -77,13 +77,13 @@ export class Repository {
     return this.companies;
   }
 
-  getCompaniesLikedById(id: number) {
+  getMatchedCompaniesById(id: number) {
     console.log("[Repository] Listando empresas curtidas por: " + id, this.companies);
     // Ainda nao implementado
     return this.companies;
   }
 
-  getCandidatesLikedById(id: number) {
+  getMatchedCandidatesById(id: number) {
     console.log("[Repository] Listando candidatos curtidos por " + id, this.candidates);
     // Ainda não implementado
     return this.candidates;

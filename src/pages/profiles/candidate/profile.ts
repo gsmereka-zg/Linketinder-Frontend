@@ -7,7 +7,7 @@ function renderCandidateProfile() {
   const params = new URLSearchParams(window.location.search);
   const id = Number(params.get("id"));
 
-  const candidates = repo.getCandidatesLikedById(id);
+  const candidates = repo.getMatchedCandidatesById(id);
   const candidate = candidates[id];
 
   if (!candidate) {
