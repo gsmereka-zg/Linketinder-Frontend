@@ -1,12 +1,13 @@
 import { Repository } from "../../../repository/Repository.js";
+declare var Chart: any;
 
 const repo = new Repository();
+// Pega o ID da empresa pela URL (ex: profile.html?id=1)
+const params = new URLSearchParams(window.location.search);
+const id = Number(params.get("id"));
+const candidates = repo.getMatchedCandidatesById(id);
 
 function renderCompanyProfile() {
-  // Pega o ID da empresa pela URL (ex: profile.html?id=1)
-  const params = new URLSearchParams(window.location.search);
-  const id = Number(params.get("id"));
-
   const companies = repo.getCompanies();
   const company = companies[id];
 
@@ -41,7 +42,7 @@ function renderCandidates() {
   }
 
   tbody.innerHTML = "";
-  repo.getCandidates().forEach((c, i) => {
+  candidates.forEach((c, i) => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${c.name}</td>
@@ -52,5 +53,54 @@ function renderCandidates() {
   });
 }
 
+function renderSkillsChartForCompany() {
+  const skillsCount: Record<string, number> = {};
+
+  candidates.forEach(candidate => {
+    candidate.skills.forEach(skill => {
+      skillsCount[skill] = (skillsCount[skill] || 0) + 1;
+    });
+  });
+
+  const canvas = document.getElementById('skillsChart') as HTMLCanvasElement;
+  if (!canvas) {
+    console.warn("Canvas #skillsChart não encontrado!");
+    return;
+  }
+
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    console.error("Não foi possível obter o contexto 2D do canvas.");
+    return;
+  }
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: Object.keys(skillsCount),
+      datasets: [{
+        label: 'Número de Candidatos por Competência',
+        data: Object.values(skillsCount),
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            precision: 0
+          }
+        }
+      }
+    }
+  });
+}
+
+
 document.addEventListener("DOMContentLoaded", renderCompanyProfile);
 document.addEventListener("DOMContentLoaded", renderCandidates);
+document.addEventListener("DOMContentLoaded", renderSkillsChartForCompany);

@@ -34,9 +34,9 @@ export class Repository {
     console.log("[Repository] Criando dados iniciais...");
 
     this.candidates = [
-      new Candidate("Ana Silva", "ana@gmail.com", "12345678900", 28, "SP", "01000-000", "Desenvolvedora Full Stack", ["JavaScript", "React", "Node.js"]),
-      new Candidate("Bruno Souza", "bruno@gmail.com", "23456789011", 32, "RJ", "20000-000", "Analista de Dados", ["Python", "SQL", "Power BI"]),
-      new Candidate("Carla Mendes", "carla@gmail.com", "34567890122", 25, "MG", "30000-000", "UX/UI Designer", ["Figma", "Design Thinking"])
+      new Candidate("Ana Silva", "ana@gmail.com", "12345678900", 28, "SP", "01000-000", "Desenvolvedora Full Stack", ["JavaScript", "React", "Node.js", "Python", "Figma"]),
+      new Candidate("Bruno Souza", "bruno@gmail.com", "23456789011", 32, "RJ", "20000-000", "Analista de Dados", ["Python", "SQL", "Power BI", "React"]),
+      new Candidate("Carla Mendes", "carla@gmail.com", "34567890122", 25, "MG", "30000-000", "UX/UI Designer", ["Figma", "Design Thinking", "Python", "React"])
     ];
 
     this.companies = [
