@@ -46,11 +46,16 @@ function renderCandidates() {
 }
 function renderSkillsChartForCompany() {
     const skillsCount = {};
-    candidates.forEach(candidate => {
-        candidate.skills.forEach(skill => {
-            skillsCount[skill] = (skillsCount[skill] || 0) + 1;
-        });
-    });
+    for (const candidate of candidates) {
+        for (const skill of candidate.skills) {
+            if (!skillsCount[skill]) {
+                skillsCount[skill] = 1;
+            }
+            else {
+                skillsCount[skill]++;
+            }
+        }
+    }
     const canvas = document.getElementById('skillsChart');
     if (!canvas) {
         console.warn("Canvas #skillsChart não encontrado!");
