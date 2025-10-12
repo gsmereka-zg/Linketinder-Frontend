@@ -9,27 +9,13 @@ $destDir = "dest"
 $currentBranch = git rev-parse --abbrev-ref HEAD
 Write-Host "Branch atual: $currentBranch"
 
-# Verifica se a branch 'prod' existe localmente
-$prodExistsLocal = git branch --list $prodBranch
-
-# Se existir, deleta a branch local
-if ($prodExistsLocal) {
-    Write-Host "Removendo branch local '$prodBranch'..."
-    git branch -D $prodBranch
-}
-
-# Verifica se a branch 'prod' existe remotamente
-$prodExistsRemote = git ls-remote --heads origin $prodBranch
-
-# Se existir remotamente, deleta a branch remota
-if ($prodExistsRemote) {
-    Write-Host "Removendo branch remota '$prodBranch'..."
-    git push origin --delete $prodBranch
-}
+git add .
+git commit -m "Deploy para produção"
+git push
 
 # Cria nova branch 'prod' a partir da atual
 Write-Host "Criando nova branch '$prodBranch'..."
-git checkout -b $prodBranch
+git checkout $prodBranch
 
 # Copia arquivos da pasta 'dest/' para raiz
 Write-Host "Copiando arquivos de '$destDir/' para raiz..."

@@ -1,9 +1,8 @@
 {
     "type": "module",
     "scripts": {
-        "build": "tsc && npm run copy && npx serve dest",
+        "build": "tsc && npm run copy && npx serve -l 8084 dest",
         "copy": "xcopy src\\*.html dest /s /y && xcopy src\\*.css dest /s /y",
         "publish": "tsc && npm run copy && powershell ./publish-prod.ps1"
     }
-
 }
