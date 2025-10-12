@@ -37,7 +37,6 @@ function renderCandidates() {
     candidates.forEach((c, i) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-      <td>${c.name}</td>
       <td>${c.description || "Sem descrição"}</td>
       <td>${c.skills.length ? c.skills.join(", ") : "Nenhuma informada"}</td>
     `;
