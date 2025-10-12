@@ -7,7 +7,7 @@ function renderCandidateProfile() {
   const params = new URLSearchParams(window.location.search);
   const id = Number(params.get("id"));
 
-  const candidates = repo.getCandidates();
+  const candidates = repo.getCandidatesLikedById(id);
   const candidate = candidates[id];
 
   if (!candidate) {
@@ -32,4 +32,24 @@ function renderCandidateProfile() {
   `;
 }
 
+
+function renderCompanies() {
+  const tbody = document.querySelector("#companies-table tbody");
+  if (!tbody) {
+    console.warn("Elemento #companies-table não encontrado");
+    return;
+  }
+
+  tbody.innerHTML = "";
+  repo.getCompanies().forEach((c, i) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${c.name}</td>
+      <td>${c.description || "Sem descrição"}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", renderCandidateProfile);
+document.addEventListener("DOMContentLoaded", renderCompanies);
