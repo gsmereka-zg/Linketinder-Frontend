@@ -28,14 +28,14 @@ export class Repository {
     _createInitialData() {
         console.log("[Repository] Criando dados iniciais...");
         this.candidates = [
-            new Candidate("Ana Silva", "ana@gmail.com", "12345678900", 28, "SP", "01000-000", "Desenvolvedora Full Stack", ["JavaScript", "React", "Node.js", "Python", "Figma"]),
-            new Candidate("Bruno Souza", "bruno@gmail.com", "23456789011", 32, "RJ", "20000-000", "Analista de Dados", ["Python", "SQL", "Power BI", "React"]),
-            new Candidate("Carla Mendes", "carla@gmail.com", "34567890122", 25, "MG", "30000-000", "UX/UI Designer", ["Figma", "Design Thinking", "Python", "React"])
+            new Candidate("Ana Silva", "ana@gmail.com", "123.456.789-00", 28, "SP", "01000-000", "Desenvolvedora Full Stack", "(11) 98765-4321", ["JavaScript", "React", "Node.js", "Python", "Figma"]),
+            new Candidate("Bruno Souza", "bruno@gmail.com", "234.567.890-11", 32, "RJ", "20000-000", "Analista de Dados", "(21) 98888-1234", ["Python", "SQL", "Power BI", "React"]),
+            new Candidate("Carla Mendes", "carla@gmail.com", "345.678.901-22", 25, "MG", "30000-000", "UX/UI Designer", "(31) 97777-4567", ["Figma", "Canvas", "Python", "React"])
         ];
         this.companies = [
-            new Company("TechCorp", "contato@techcorp.com", "11222333000181", "Brasil", "SP", "01000-000", "Empresa de soluções em tecnologia", ["JavaScript", "DevOps"]),
-            new Company("DataSoft", "rh@datasoft.com", "22333444000192", "Brasil", "RJ", "20000-000", "Consultoria em análise de dados", ["Python", "SQL"]),
-            new Company("DesignX", "oi@designx.com", "33444555000103", "Brasil", "MG", "30000-000", "Agência de design digital", ["UX", "UI", "Figma"])
+            new Company("TechCorp", "contato@techcorp.com", "11.222.333/0001-81", "Brasil", "SP", "01000-000", "Empresa de soluções em tecnologia", "(11) 4002-8922", ["JavaScript", "DevOps"]),
+            new Company("DataSoft", "rh@datasoft.com", "22.333.444/0001-92", "Brasil", "RJ", "20000-000", "Consultoria em análise de dados", "(21) 3555-6677", ["Python", "SQL"]),
+            new Company("DesignX", "oi@designx.com", "33.444.555/0001-03", "Brasil", "MG", "30000-000", "Agência de design digital", "(31) 3222-3344", ["UX", "UI", "Figma"])
         ];
         this.save();
     }
