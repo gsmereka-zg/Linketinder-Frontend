@@ -1,6 +1,6 @@
 import { Person } from "./Person.js";
 
-export class Candidate extends Person{
+export class Candidate extends Person {
   cpf: string;
   age: number;
 
@@ -12,9 +12,10 @@ export class Candidate extends Person{
     state: string,
     cep: string,
     description: string,
+    number: string,
     skills: string[] = []
   ) {
-    super(name, email, state, cep, description, skills);
+    super(name, email, state, cep, description, number, skills);
     this.cpf = cpf;
     this.age = age;
   }

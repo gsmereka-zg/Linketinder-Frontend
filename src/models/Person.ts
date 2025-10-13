@@ -4,6 +4,7 @@ export abstract class Person{
   state: string;
   cep: string;
   description: string;
+  number: string;
   skills: string[];
 
   constructor(
@@ -12,6 +13,7 @@ export abstract class Person{
     state: string,
     cep: string,
     description: string,
+    number: string,
     skills: string[] = []
   ) {
     this.name = name;
@@ -19,6 +21,7 @@ export abstract class Person{
     this.state = state;
     this.cep = cep;
     this.description = description;
+    this.number = number;
     this.skills = [...skills];
     }
 }
